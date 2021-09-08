@@ -4,7 +4,7 @@ const ADD_ROCKET = 'space-travelers-hub/rockets/ADD_ROCKET';
 
 const initialState = [];
 
-export const getRocketAction = () => async (dispatch) => {
+const getRocketsAction = () => async (dispatch) => {
   const rockets = await getRockets();
 
   dispatch({
@@ -22,4 +22,4 @@ const rocketsReducer = (state = initialState, action) => {
   }
 };
 
-export { rocketsReducer, getRocketsAction };
+export { getRocketsAction, rocketsReducer };
