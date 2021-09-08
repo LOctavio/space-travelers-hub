@@ -1,24 +1,16 @@
-const ADD_MISSION = 'space-travelers-hub/missions/ADD_MISSION';
-const REMOVE_MISSION = 'space-travelers-hub/missions/REMOVE_MISSION';
+const GET_MISSION_LIST = 'space-travelers-hub/missions/GET_MISSION_LIST';
 
 const initialState = [];
 
-export const addMission = (payload) => ({
-  type: ADD_MISSION,
-  payload,
-});
-
-export const removeMission = (payload) => ({
-  type: REMOVE_MISSION,
+export const getList = (payload) => ({
+  type: GET_MISSION_LIST,
   payload,
 });
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_MISSION:
-      return [...state, action.payload];
-    case REMOVE_MISSION:
-      return state.filter((mission) => mission.id !== action.payload.id);
+    case GET_MISSION_LIST:
+      return action.payload;
     default:
       return state;
   }
