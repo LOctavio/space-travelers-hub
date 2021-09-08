@@ -13,7 +13,7 @@ function Header() {
         <ul className="links-nav">
           <li>
             <NavLink
-              className={(isActive) => `link-nav${isActive ? '-active' : ''}`}
+              className={(isActive) => `${isActive ? '' : 'link-nav'}`}
               to="/my-profile"
             >
               Profile
