@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Header from './components/Header/Header';
@@ -9,13 +9,10 @@ import { getList } from './redux/missions/missions';
 function App() {
   const dispatch = useDispatch();
 
-  const [missions, setMissions] = useState([]);
-
   const getMissionsList = async () => {
     await fetch('https://api.spacexdata.com/v3/missions')
       .then((response) => response.json())
       .then((json) => {
-        setMissions(json);
         dispatch(getList(json));
       });
   };
