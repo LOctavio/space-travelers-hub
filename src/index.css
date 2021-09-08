@@ -31,8 +31,14 @@
   list-style-type: none;
   line-height: 54px;
   font-size: 20px;
+  display: flex;
 }
 
 .link-nav {
   text-decoration: none;
+}
+
+.line-between {
+  border: 1px gray solid;
+  margin: 20px 20px;
 }

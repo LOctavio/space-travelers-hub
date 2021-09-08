@@ -19,6 +19,7 @@ function Header() {
               Missions
             </NavLink>
           </li>
+          <div className="line-between" />
           <li>
             <NavLink
               className={(isActive) => `${isActive ? '' : 'link-nav'}`}
