@@ -3,8 +3,8 @@ import axios from 'axios';
 const rocketsUrl = 'https://api.spacexdata.com/v3/rockets';
 
 const getRockets = async () => {
-  const res = await axios.get(rocketsUrl);
-  const { data } = res;
+  const response = await axios.get(rocketsUrl);
+  const { data } = response;
   const rockets = [];
 
   data.map((rocket) => rockets.push({
