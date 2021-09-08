@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import Header from './components/Header/Header';
 import Profile from './components/Profile';
 import Missions from './components/Missions';
+import Rockets from './components/Rockets';
 import { getList } from './redux/missions/missions';
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route path="/rockets">
+            <Rockets />
+          </Route>
           <Route path="/my-profile">
             <Profile />
           </Route>
