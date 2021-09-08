@@ -1,10 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Header from './components/Header/Header';
 import Profile from './components/Profile';
 import Missions from './components/Missions';
+import { getList } from './redux/missions/missions';
 
 function App() {
+  const dispatch = useDispatch();
+
+  const getMissionsList = async () => {
+    await fetch('https://api.spacexdata.com/v3/missions')
+      .then((response) => response.json())
+      .then((json) => {
+        dispatch(getList(json));
+      });
+  };
+
+  useEffect(() => {
+    getMissionsList();
+  }, []);
+
   return (
     <div className="App">
       <Router>
