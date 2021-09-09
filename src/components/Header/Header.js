@@ -11,7 +11,7 @@ function Header() {
       </div>
       <nav className="space-nav">
         <ul className="links-nav">
-          <li>
+          <li className="mx-3">
             <NavLink
               className={(isActive) => `${isActive ? '' : 'link-nav'}`}
               to="/rockets"

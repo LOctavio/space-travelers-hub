@@ -13,7 +13,6 @@ const getRocketsAction = () => async (dispatch) => {
 };
 
 const reserveRocketAction = (id) => ({
-
   type: RESERVE_ROCKET,
   payload: id,
 });

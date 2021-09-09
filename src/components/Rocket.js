@@ -10,8 +10,8 @@ const Rocket = ({
   <div className="row mb-5">
     <div className="col-md-12">
       <div className="d-flex align-items-start">
-        <div className="col-md-">
-          <img src={image} alt={name} width="250" height="250" />
+        <div className="col-md- mx-3">
+          <img src={image} alt={name} width="150" height="150" />
         </div>
         <div className="ms-3">
           <h4 className="text-dark">{name}</h4>

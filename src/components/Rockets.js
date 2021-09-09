@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import Rocket from './Rocket';
 import rocketHooks from '../hooks/rockets';
+import Rocket from './Rocket';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rocketsReducer);
@@ -9,7 +9,7 @@ const Rockets = () => {
   rocketHooks();
 
   return (
-    <div>
+    <div className="container my-3 p-3">
       {rockets.map((rocket) => (
         <Rocket
           key={rocket.id}
