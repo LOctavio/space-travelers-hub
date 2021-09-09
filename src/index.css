@@ -68,3 +68,7 @@
   width: 160px;
   position: relative;
 }
+
+.badge {
+  margin-right: 5px;
+}
