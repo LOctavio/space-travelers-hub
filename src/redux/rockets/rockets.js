@@ -2,6 +2,7 @@ import getRockets from '../../api/rockets';
 
 const GET_ROCKETS = 'space-travelers-hub/rockets/GET_ROCKET';
 const RESERVE_ROCKET = 'space-travelers-hub/rockets/RESERVE_ROCKET';
+const CANCEL_ROCKET = 'space-travelers-hub/rockets/CANCEL_ROCKET';
 
 const getRocketsAction = () => async (dispatch) => {
   const rockets = await getRockets();
@@ -17,6 +18,11 @@ const reserveRocketAction = (id) => ({
   payload: id,
 });
 
+const cancelRocketAction = (id) => ({
+  type: CANCEL_ROCKET,
+  payload: id,
+});
+
 const rocketsReducer = (state = [], action) => {
   switch (action.type) {
     case GET_ROCKETS:
@@ -28,9 +34,18 @@ const rocketsReducer = (state = [], action) => {
       });
       return newState;
     }
+    case CANCEL_ROCKET: {
+      const newState = state.map((rocket) => {
+        if (rocket.id !== action.payload) return rocket;
+        return { ...rocket, reserved: false };
+      });
+      return newState;
+    }
     default:
       return state;
   }
 };
 
-export { getRocketsAction, reserveRocketAction, rocketsReducer };
+export {
+  getRocketsAction, reserveRocketAction, cancelRocketAction, rocketsReducer,
+};
