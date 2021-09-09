@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { reserveRocketAction } from '../redux/rockets/rockets';
+import { reserveRocketAction, cancelRocketAction } from '../redux/rockets/rockets';
 import Button from './Button';
 
 const Rocket = ({
@@ -21,7 +21,7 @@ const Rocket = ({
             <Button text="Reserve Rocket" click={() => reserveRocketAction(id)} id={id} buttonClass="btn btn-primary" />
           )}
           {reserved && (
-            <Button text="Cancel Rerservation" click={() => reserveRocketAction(id)} id={id} buttonClass="btn btn-outline-secondary" />
+            <Button text="Cancel Rerservation" click={() => cancelRocketAction(id)} id={id} buttonClass="btn btn-outline-secondary" />
           )}
         </div>
       </div>
