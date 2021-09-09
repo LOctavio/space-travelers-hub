@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { reserveRocketAction, cancelRocketAction } from '../redux/rockets/rockets';
 import Button from './Button';
+import Badge from './Badge';
 
 const Rocket = ({
   id, name, description, image, reserved,
@@ -15,6 +16,9 @@ const Rocket = ({
         <div className="ms-3">
           <h4 className="text-dark">{name}</h4>
           <p className="text-secondary text-start text-wrap">
+            {reserved && (
+              <Badge text="Reserved" />
+            )}
             {description}
           </p>
           {!reserved && (
