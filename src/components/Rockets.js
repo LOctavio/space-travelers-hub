@@ -1,10 +1,26 @@
+import React from 'react';
+import { useSelector } from 'react-redux';
 import rocketHooks from '../hooks/rockets';
+import Rocket from './Rocket';
 
 const Rockets = () => {
+  const rockets = useSelector((state) => state.rocketsReducer);
+
   rocketHooks();
 
   return (
-    <h1>Rockets</h1>
+    <div className="container my-3 p-3">
+      {rockets.map((rocket) => (
+        <Rocket
+          key={rocket.id}
+          id={rocket.id}
+          name={rocket.name}
+          description={rocket.description}
+          image={rocket.image}
+          reserved={rocket.reserved}
+        />
+      ))}
+    </div>
   );
 };
 

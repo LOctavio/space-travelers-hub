@@ -7,13 +7,15 @@ const getRockets = async () => {
   const { data } = response;
   const rockets = [];
 
-  data.map((rocket) => rockets.push({
-    id: rocket.rocket_id,
-    name: rocket.rocket_name,
-    description: rocket.description,
-    image: rocket.flickr_images[0],
-    reserved: false,
-  }));
+  data.map((rocket) => rockets.push(
+    {
+      id: rocket.rocket_id,
+      name: rocket.rocket_name,
+      description: rocket.description,
+      image: rocket.flickr_images[0],
+      reserved: false,
+    },
+  ));
   return rockets;
 };
 
