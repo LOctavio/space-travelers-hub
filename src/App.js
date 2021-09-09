@@ -32,7 +32,7 @@ function App() {
             <Rockets />
           </Route>
           <Route path="/my-profile">
-            <Profile />
+            <Profile missions={missions} />
           </Route>
           <Route path="/missions">
             <Missions missions={missions} />
