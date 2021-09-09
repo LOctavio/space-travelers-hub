@@ -5,6 +5,7 @@ import Header from './components/Header/Header';
 import Profile from './components/Profile';
 import Missions from './components/Missions';
 import Rockets from './components/Rockets';
+import rocketHooks from './hooks/rockets';
 import { getList } from './redux/missions/missions';
 
 function App() {
@@ -19,6 +20,8 @@ function App() {
         dispatch(getList(json));
       });
   };
+
+  rocketHooks();
 
   useEffect(() => {
     getMissionsList();

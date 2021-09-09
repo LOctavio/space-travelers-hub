@@ -1,12 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import rocketHooks from '../hooks/rockets';
 import Rocket from './Rocket';
 
 const Rockets = () => {
   const rockets = useSelector((state) => state.rocketsReducer);
-
-  rocketHooks();
 
   return (
     <div className="container my-3 p-3">
