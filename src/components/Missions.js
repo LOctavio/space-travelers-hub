@@ -18,6 +18,7 @@ const Missions = () => {
         {mission.map((mission) => (
           <Mission
             key={mission.mission_id}
+            id={mission.mission_id}
             name={mission.mission_name}
             description={mission.description}
           />

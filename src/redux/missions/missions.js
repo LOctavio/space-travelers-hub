@@ -1,4 +1,5 @@
 const GET_MISSION_LIST = 'space-travelers-hub/missions/GET_MISSION_LIST';
+const JOIN_MISSION = 'space-travelers-hub/missions/JOIN_MISSION';
 
 const initialState = [];
 
@@ -7,8 +8,20 @@ export const getList = (payload) => ({
   payload,
 });
 
+export const joinMission = (payload) => ({
+  type: JOIN_MISSION,
+  payload,
+});
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
+    case JOIN_MISSION: {
+      const newState = state.map((mission) => {
+        if (mission.mission_id !== action.payload) return mission;
+        return { ...mission, reserved: true };
+      });
+      return newState;
+    }
     case GET_MISSION_LIST:
       return action.payload;
     default:
