@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from './components/Header/Header';
 import Profile from './components/Profile';
 import Missions from './components/Missions';
@@ -9,6 +9,7 @@ import { getList } from './redux/missions/missions';
 
 function App() {
   const dispatch = useDispatch();
+  const missions = useSelector((state) => state.missionsReducer);
 
   const getMissionsList = async () => {
     await fetch('https://api.spacexdata.com/v3/missions')
@@ -34,7 +35,7 @@ function App() {
             <Profile />
           </Route>
           <Route path="/missions">
-            <Missions />
+            <Missions missions={missions} />
           </Route>
         </Switch>
       </Router>
