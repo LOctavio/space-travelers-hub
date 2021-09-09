@@ -13,7 +13,7 @@ function Header() {
         <ul className="links-nav">
           <li className="mx-3">
             <NavLink
-              className={(isActive) => `${isActive ? '' : 'link-nav'}`}
+              className={(isActive) => `link-nav${isActive ? '-active' : ''}`}
               to="/rockets"
             >
               Rockets
@@ -21,7 +21,7 @@ function Header() {
           </li>
           <li>
             <NavLink
-              className={(isActive) => `${isActive ? '' : 'link-nav'}`}
+              className={(isActive) => `link-nav${isActive ? '-active' : ''}`}
               to="/missions"
             >
               Missions
@@ -30,7 +30,7 @@ function Header() {
           <div className="line-between" />
           <li>
             <NavLink
-              className={(isActive) => `${isActive ? '' : 'link-nav'}`}
+              className={(isActive) => `link-nav${isActive ? '-active' : ''}`}
               to="/my-profile"
             >
               My Profile
