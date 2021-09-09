@@ -1,9 +1,9 @@
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Table } from 'react-bootstrap';
 import Mission from './Mission';
 
-const Missions = () => {
-  const mission = useSelector((state) => state.missionsReducer);
+const Missions = (props) => {
+  const { missions } = props;
   return (
     <Table className="missions-list" bordered hover>
       <thead>
@@ -15,7 +15,7 @@ const Missions = () => {
         </tr>
       </thead>
       <tbody>
-        {mission.map((mission) => (
+        {missions.map((mission) => (
           <Mission
             key={mission.mission_id}
             id={mission.mission_id}
@@ -27,6 +27,10 @@ const Missions = () => {
       </tbody>
     </Table>
   );
+};
+
+Missions.propTypes = {
+  missions: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default Missions;
