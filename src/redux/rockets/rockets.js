@@ -21,14 +21,13 @@ const rocketsReducer = (state = [], action) => {
   switch (action.type) {
     case GET_ROCKETS:
       return [...state, ...action.payload];
-    case RESERVE_ROCKET:
-      return state.map((rocket) => {
-        if (rocket.id === action.payload) {
-          return { ...rocket, reserved: !rocket.reserved };
-        }
-        return rocket;
+    case RESERVE_ROCKET: {
+      const newState = state.map((rocket) => {
+        if (rocket.id !== action.payload) return rocket;
+        return { ...rocket, reserved: true };
       });
-
+      return newState;
+    }
     default:
       return state;
   }
