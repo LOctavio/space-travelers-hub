@@ -10,6 +10,7 @@ import { getList } from './redux/missions/missions';
 function App() {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missionsReducer);
+  const rockets = useSelector((state) => state.rocketsReducer);
 
   const getMissionsList = async () => {
     await fetch('https://api.spacexdata.com/v3/missions')
@@ -32,7 +33,7 @@ function App() {
             <Rockets />
           </Route>
           <Route path="/my-profile">
-            <Profile missions={missions} />
+            <Profile missions={missions} rockets={rockets} />
           </Route>
           <Route path="/missions">
             <Missions missions={missions} />
