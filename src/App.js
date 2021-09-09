@@ -6,9 +6,11 @@ import Profile from './components/Profile';
 import Missions from './components/Missions';
 import Rockets from './components/Rockets';
 import { getList } from './redux/missions/missions';
+import { getRocketsAction } from './redux/rockets/rockets';
 
 function App() {
   const dispatch = useDispatch();
+  const rocketDispatch = useDispatch();
   const missions = useSelector((state) => state.missionsReducer);
 
   const getMissionsList = async () => {
@@ -21,6 +23,10 @@ function App() {
 
   useEffect(() => {
     getMissionsList();
+  }, []);
+
+  useEffect(() => {
+    rocketDispatch(getRocketsAction());
   }, []);
 
   return (
