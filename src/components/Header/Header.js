@@ -33,7 +33,7 @@ function Header() {
               className={(isActive) => `${isActive ? '' : 'link-nav'}`}
               to="/my-profile"
             >
-              Profile
+              My Profile
             </NavLink>
           </li>
         </ul>
