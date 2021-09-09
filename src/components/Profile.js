@@ -4,8 +4,9 @@ import {
 import PropTypes from 'prop-types';
 
 const Profile = (props) => {
-  const { missions } = props;
+  const { missions, rockets } = props;
   const activeMissions = missions.filter((mission) => mission.reserved === true);
+  const activeRockets = rockets.filter((rocket) => rocket.reserved === true);
   return (
     <Container>
       <Row>
@@ -25,6 +26,17 @@ const Profile = (props) => {
         </Col>
         <Col>
           <h2>My Rockets</h2>
+          <Table bordered>
+            <tbody>
+              {activeRockets.map((rocket) => (
+                <tr key={rocket.id}>
+                  <td>
+                    {rocket.name}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </Table>
         </Col>
       </Row>
     </Container>
@@ -33,6 +45,7 @@ const Profile = (props) => {
 
 Profile.propTypes = {
   missions: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  rockets: PropTypes.arrayOf(PropTypes.shape()).isRequired,
 };
 
 export default Profile;
