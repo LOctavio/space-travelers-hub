@@ -14,7 +14,7 @@ const Mission = (props) => {
       <th>{name}</th>
       <td>{description}</td>
       <td className="button-container">
-        <Button className="member-button" variant="secondary">NOT A MEMBER</Button>
+        <Button className="member-button" variant={reserved ? 'primary' : 'secondary'}>{ reserved ? 'Active Member' : 'NOT A MEMBER' }</Button>
       </td>
       <td className="button-container">
         <Button className="join-mission-button" variant="outline-secondary" onClick={() => (reserved ? dispatch(leaveMission(id)) : dispatch(joinMission(id)))}>{ reserved ? 'LEAVE MISSION' : 'JOIN MISSION' }</Button>
