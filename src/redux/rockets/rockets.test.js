@@ -3,10 +3,10 @@ import rocketsReducer, { getRocketsAction, reserveRocketAction, cancelRocketActi
 describe('Rockets reducer', () => {
   const list = [
     {
-      rocket_id: 1,
+      id: 1,
     },
     {
-      rocket_id: 2,
+      id: 2,
     },
   ];
 
@@ -14,7 +14,7 @@ describe('Rockets reducer', () => {
     const exampleAction = () => ({
       type: 'EXAMPLE_ACTION',
       payload: {
-        rocket_id: 1,
+        id: 1,
       },
     });
     expect(rocketsReducer([], exampleAction())).toStrictEqual([]);
@@ -27,11 +27,11 @@ describe('Rockets reducer', () => {
   it('reserve rocket with id 1', () => {
     expect(rocketsReducer(list, reserveRocketAction(1))).toStrictEqual([
       {
-        rocket_id: 1,
+        id: 1,
         reserved: true,
       },
       {
-        rocket_id: 2,
+        id: 2,
       },
     ]);
   });
@@ -39,10 +39,10 @@ describe('Rockets reducer', () => {
   it('reserve rocket with id 2', () => {
     expect(rocketsReducer(list, reserveRocketAction(2))).toStrictEqual([
       {
-        rocket_id: 1,
+        id: 1,
       },
       {
-        rocket_id: 2,
+        id: 2,
         reserved: true,
       },
     ]);
@@ -51,11 +51,11 @@ describe('Rockets reducer', () => {
   it('cancel rocket reservation  with id 1', () => {
     expect(rocketsReducer(list, cancelRocketAction(1))).toStrictEqual([
       {
-        rocket_id: 1,
+        id: 1,
         reserved: false,
       },
       {
-        rocket_id: 2,
+        id: 2,
       },
     ]);
   });
@@ -63,10 +63,10 @@ describe('Rockets reducer', () => {
   it('cancel rocket reservation  with id 2', () => {
     expect(rocketsReducer(list, cancelRocketAction(2))).toStrictEqual([
       {
-        rocket_id: 1,
+        id: 1,
       },
       {
-        rocket_id: 2,
+        id: 2,
         reserved: false,
       },
     ]);
