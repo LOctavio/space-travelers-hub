@@ -32,6 +32,9 @@ function App() {
       <Router>
         <Header />
         <Switch>
+          <Route exact path="/">
+            <Rockets />
+          </Route>
           <Route path="/rockets">
             <Rockets />
           </Route>
