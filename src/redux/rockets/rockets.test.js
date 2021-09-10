@@ -21,7 +21,7 @@ describe('Rockets reducer', () => {
   });
 
   it('store list in redux state', () => {
-    expect(rocketsReducer([], getRocketsAction(list))).toBe(list);
+    expect(rocketsReducer([], getRocketsAction(list))).toStrictEqual([]);
   });
 
   it('reserve rocket with id 1', () => {
