@@ -4,7 +4,7 @@ const GET_ROCKETS = 'space-travelers-hub/rockets/GET_ROCKET';
 const RESERVE_ROCKET = 'space-travelers-hub/rockets/RESERVE_ROCKET';
 const CANCEL_ROCKET = 'space-travelers-hub/rockets/CANCEL_ROCKET';
 
-const getRocketsAction = () => async (dispatch) => {
+export const getRocketsAction = () => async (dispatch) => {
   const rockets = await getRockets();
 
   dispatch({
@@ -13,12 +13,12 @@ const getRocketsAction = () => async (dispatch) => {
   });
 };
 
-const reserveRocketAction = (id) => ({
+export const reserveRocketAction = (id) => ({
   type: RESERVE_ROCKET,
   payload: id,
 });
 
-const cancelRocketAction = (id) => ({
+export const cancelRocketAction = (id) => ({
   type: CANCEL_ROCKET,
   payload: id,
 });
@@ -46,6 +46,4 @@ const rocketsReducer = (state = [], action) => {
   }
 };
 
-export {
-  getRocketsAction, reserveRocketAction, cancelRocketAction, rocketsReducer,
-};
+export default rocketsReducer;
