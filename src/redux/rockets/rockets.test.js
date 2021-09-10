@@ -1,4 +1,4 @@
-import rocketsReducer, { getRocketsAction, reserveRocketAction, cancelRocketAction } from './rockets'
+import rocketsReducer, { getRocketsAction, reserveRocketAction, cancelRocketAction } from './rockets';
 
 describe('Rockets reducer', () => {
   const list = [
